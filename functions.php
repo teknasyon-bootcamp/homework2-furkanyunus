@@ -16,6 +16,14 @@
  * bekliyoruz. Bununla ilgili detaylı bilgi diğer betiklerde yer alıyor.
  */
 
+ $RegFile = basename($_SERVER['REQUEST_URI']); // sayfa erişimi için
+$CurFile = basename(__FILE__); // dizin
+
+if ($RegFile == $CurFile) {
+    exit("Erişim engellendi");
+}
+
+
 function getLatestPosts($count = 5)
 {
     $posts = [];
@@ -47,5 +55,12 @@ function getPostDetails($id, $title)
 EOT;
 }
 
+
 // Aşağıya fonksiyonu tanımlayabilirsiniz.
 
+
+# Rastgele Gönderi Sayısını Alın
+function getRandomPostCount($min, $max) // mix ve max  ile stgele syı döndürme
+{
+    return rand($min, $max);
+}

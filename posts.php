@@ -20,3 +20,19 @@
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
 
+ require_once "functions.php";
+
+
+ $randomDeger = getRandomPostCount(min: 1, max: 30);//Rastgele bir sayı aldık
+
+
+ $posts = getLatestPosts($randomDeger);//en son gönderilen degerleri aldık
+
+ foreach ($posts as $key => $post) {//degişkenlere nitelikleri atadık
+
+
+     $id = $key;
+     $type = $post['type'];
+     $title = $post['title'];
+     include 'post.php';
+ }
